@@ -1,38 +1,32 @@
-.App {
-  text-align: center;
+  body {
+    font-family: 'Nunito Semibold';
+   text-align: center;
+   }
+.app{
+ display: grid;
+ max-width: 1600px;
+ margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.quiz-container{
+ display: grid ;
+ text-align: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.answers{
+ display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-auto-rows: minmax(50px, auto);
+   gap: 10px;
+   max-width:960px;
+    }
+
+.answers div{
+ background: wheat;
+ padding: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.selected-answer{
+  background-color: red ;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

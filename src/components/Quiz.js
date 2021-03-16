@@ -59,14 +59,26 @@ const Quiz = () => {
 	};
 
 	const colorizeUserResponse = () => {
-		const prevElementId = state.currentQuestion.userResponse;
-		const ElBeforeUpdating = document.getElementById(prevElementId);
-		console.log(ElBeforeUpdating);
-		if (ElBeforeUpdating) ElBeforeUpdating.classList.add('user-response');
+		const answeredDivsObj = state.questions.filter((question) => {
+			return document.getElementById(question.userResponse);
+		});
+
+		if (answeredDivsObj && answeredDivsObj[0]) {
+			let answeredDiv = document.getElementById(answeredDivsObj[0].userResponse);
+			answeredDiv.classList.add('user-response');
+			console.log(answeredDiv);
+		}
 	};
 
+	useEffect(
+		() => {
+			colorizeUserResponse();
+		},
+		[ [ ...state.questions ] ],
+	);
+
 	const handleResponse = (e) => {
-		// console.log(state.currentQuestion.userResponse, 'before updaing');
+		console.log(state.currentQuestion.userResponse, 'before updaing');
 		const prevElementId = state.currentQuestion.userResponse;
 		const ElBeforeUpdating = document.getElementById(prevElementId);
 		if (ElBeforeUpdating) ElBeforeUpdating.classList.remove('user-response');
@@ -76,12 +88,6 @@ const Quiz = () => {
 		state.currentQuestion['userResponse'] = userResponse;
 		setState({
 			...state,
-		});
-
-		if (e.target) e.target.classList.add('user-response');
-
-		M.toast({
-			html: 'Option Clicked',
 		});
 	};
 

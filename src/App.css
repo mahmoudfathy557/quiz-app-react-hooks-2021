@@ -1,11 +1,11 @@
-  body {
+  /* body {
     font-family: 'Nunito Semibold';
-   text-align: center;
+    
    }
 .app{
  display: grid;
  max-width: 1600px;
- margin: 0 auto;
+ margin: 0 0;
 }
 
 .quiz-container{
@@ -29,4 +29,4 @@
 .selected-answer{
   background-color: red ;
 }
-
+ */

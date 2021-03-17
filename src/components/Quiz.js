@@ -19,6 +19,7 @@ const Quiz = () => {
 		correctAnswers: 0,
 		wrongAnswers: 0,
 		score: 0,
+		examIsTaken: false,
 	});
 
 	const [ showResult, setShowResult ] = useState(false);
@@ -78,12 +79,10 @@ const Quiz = () => {
 	);
 
 	const handleResponse = (e) => {
-		console.log(state.currentQuestion.userResponse, 'before updaing');
 		const prevElementId = state.currentQuestion.userResponse;
 		const ElBeforeUpdating = document.getElementById(prevElementId);
 		if (ElBeforeUpdating) ElBeforeUpdating.classList.remove('user-response');
 
-		console.log(ElBeforeUpdating, 'before update');
 		const userResponse = e.target.innerHTML;
 		state.currentQuestion['userResponse'] = userResponse;
 		setState({

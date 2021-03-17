@@ -1,0 +1,36 @@
+.result{
+ text-align: center;
+  
+ h1{
+  text-decoration: underline;
+  display: block;
+ }
+
+ .result-answers {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+ }
+ .correct-answers{
+  background-color: green;
+   border-radius: $button-radius;
+   padding: 20px;
+   margin: 0 1rem;
+ }
+ .wrong-answers{
+   padding: 20px;
+   margin: 0 1rem;
+  background-color: red;
+   border-radius: $button-radius;
+
+ }
+
+ .progress-shape{
+  //  display: block !important;
+  //  padding: 3rem i !important;
+  //  width: 3rem !important;
+  //  height: 3rem i !important;
+ }
+}

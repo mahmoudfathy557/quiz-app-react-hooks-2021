@@ -6,11 +6,14 @@ import '../node_modules/materialize-css/dist/css/materialize.min.css';
 import '../node_modules/materialize-css/dist/js/materialize.min.js';
 
 import App from './App';
+import { FirebaseProvider } from './components/auth/context';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<FirebaseProvider>
+			<App />
+		</FirebaseProvider>
 	</React.StrictMode>,
 	document.getElementById('root'),
 );

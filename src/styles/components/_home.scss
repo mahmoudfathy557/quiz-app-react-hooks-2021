@@ -58,6 +58,19 @@
   margin-top:$lg ;
  }
 
+ .logout-button{
+   background-color: $red;
+   color: white;
+   border: none;
+  margin: 0 auto;
+   & a{
+     color: white;
+   }
+    &:hover {
+      background-color: darken($red, 10%)
+    }
+ }
+
  #login-button{
   background-color: $red;
   &:hover{
@@ -73,7 +86,8 @@
    }
  }
 
-.auth-container .auth-buttons{
+.auth-container .auth-buttons,
+.logout-button {
  color: white;
  cursor: pointer;
  border-radius: $button-radius;
@@ -92,3 +106,7 @@
 }
 }
 
+.checkbox{
+  color: black;
+  font-size: 1.2rem;
+}

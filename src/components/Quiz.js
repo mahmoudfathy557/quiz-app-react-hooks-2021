@@ -5,8 +5,9 @@ import { data } from '../quizData';
 import isEmpty from '../utils/isEmpty';
 import Result from './Result';
 
-const Quiz = () => {
-	const exam = data.response;
+const Quiz = (props) => {
+	const exam = props.exam.exam; // from local data
+
 	const [ state, setState ] = useState({
 		questions: [],
 		currentQuestion: {},
@@ -21,6 +22,10 @@ const Quiz = () => {
 		score: 0,
 		examIsTaken: false,
 	});
+
+	console.log(data);
+
+	const [ propsState, setPropsState ] = useState(props.exam);
 
 	const [ showResult, setShowResult ] = useState(false);
 
@@ -67,7 +72,6 @@ const Quiz = () => {
 		if (answeredDivsObj && answeredDivsObj[0]) {
 			let answeredDiv = document.getElementById(answeredDivsObj[0].userResponse);
 			answeredDiv.classList.add('user-response');
-			console.log(answeredDiv);
 		}
 	};
 
@@ -101,8 +105,18 @@ const Quiz = () => {
 						{state.currentQuestion && (
 							<div className='quiz ' key={state.currentQuestion.quizNumber}>
 								<div className='question'>
-									Q{`${state.currentQuestion.quizNumber}/${state.questions.length}: ${state
-										.currentQuestion.question}`}
+									Q{`${state.currentQuestion.quizNumber}/${state.questions.length}  `}
+									{state.currentQuestion.question ? (
+										<p className='question-paragraph'>{state.currentQuestion.question}</p>
+									) : (
+										<img
+											className='question-image'
+											src={state.currentQuestion.image}
+											alt='question'
+											width='300px'
+											height='400px'
+										/>
+									)}
 								</div>
 								<div className='answers'>
 									<div
@@ -146,6 +160,7 @@ const Quiz = () => {
 								className='show-result'
 								onClick={() => {
 									setShowResult(true);
+									setState({ ...state, examIsTaken: true });
 								}}>
 								Show Result
 							</button>
@@ -159,7 +174,7 @@ const Quiz = () => {
 			</Fragment>
 		);
 	} else {
-		return <Result state={state} />;
+		return <Result state={state} propsState={propsState} />;
 	}
 };
 

@@ -1,7 +1,10 @@
 import React from 'react';
 import CircularLabel from '../components/CircularLabel';
-const Result = ({ state }) => {
-	console.log(state);
+import { data } from '../quizData';
+
+const Result = ({ state, propsState }) => {
+	// console.log(taken);
+	console.log(propsState, 'before');
 
 	let { questions, correctAnswers, wrongAnswers } = state;
 
@@ -12,11 +15,13 @@ const Result = ({ state }) => {
 			wrongAnswers++;
 		}
 	}
-	console.log(correctAnswers, ' correctAnswers');
-	console.log(wrongAnswers, ' wrongAnswers');
-	let percentageResult = correctAnswers / questions.length * 100;
-	// console.log(percentageResult);
 
+	let percentageResult = correctAnswers / questions.length * 100;
+
+	propsState.taken = true;
+	propsState.grade = percentageResult;
+
+	console.log(propsState, 'after');
 	return (
 		<div className='result'>
 			<h1>User result</h1>

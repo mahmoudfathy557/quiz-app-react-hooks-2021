@@ -1,0 +1,55 @@
+.exams-list{
+ display: flex;
+ flex-direction: column;
+ max-width: 100wh;
+ max-height: 100vh;
+  width: 80%;
+  height: 100%;
+ margin: 0 auto;
+ 
+   
+ .exam{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px black solid;
+  padding: 1rem;
+
+  h5{display: block;}
+
+ 
+  button,{
+   display: flex;
+   align-items: center;
+   background-color: $green;
+   color: white;
+   border-radius: $button-radius;
+   cursor: pointer;
+   border: none;
+   padding: $normal;
+   text-align: center;
+   transition: 0.3s linear all;
+
+
+   &:hover {
+    background-color: darken($green, 10%)
+   }
+
+   .link{
+    color: white;
+   }
+  }
+
+  .exam-taken{
+   cursor: no-drop;
+   
+  }
+ }
+}
+
+@media(max-width:$xs-breakpoint){
+ .exams-list{
+  width: 100%;
+  margin: 0;
+ }
+}

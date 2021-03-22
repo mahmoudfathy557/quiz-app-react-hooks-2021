@@ -49,16 +49,7 @@ CircularProgressWithLabel.propTypes = {
 export default function CircularStatic({ percentageResult }) {
 	console.log(percentageResult.toFixed(2));
 
-	const [ progress, setProgress ] = React.useState(percentageResult.toFixed(2));
-
-	// React.useEffect(() => {
-	// 	// const timer = setInterval(() => {
-	// 	// 	setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
-	// 	// }, 800);
-	// 	// return () => {
-	// 	// 	clearInterval(timer);
-	// 	// };
-	// }, []);
+	const progress = parseFloat(percentageResult.toFixed(2));
 
 	return <CircularProgressWithLabel value={progress} />;
 }

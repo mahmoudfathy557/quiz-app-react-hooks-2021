@@ -43,10 +43,20 @@
   padding: $normal;
   text-align: center;
   transition: 0.3s linear all;
+  margin-top: 1rem;
+
+
 
   &:hover{
     background-color: darken($green,10%)
- 
+  }
+
+  &.create-exam{
+    background-color:  $blue  !important;
+
+      &:hover {
+        background-color: darken($blue, 10%) !important
+      }
   }
  }
 

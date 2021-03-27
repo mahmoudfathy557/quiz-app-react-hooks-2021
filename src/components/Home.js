@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { data } from '../quizData';
 import { auth } from '../firebase';
 import { FirebaseContext } from '../components/auth/context';
+import CreateExam from './createExams/CreateExam';
 
 const Home = () => {
 	const { logOut, userInfo } = useContext(FirebaseContext);
@@ -28,6 +29,11 @@ const Home = () => {
 								<li>
 									<Link className='exams-button' to='/exams'>
 										Exams
+									</Link>
+								</li>
+								<li>
+									<Link className='exams-button create-exam' to='/create-exam'>
+										Create Exam
 									</Link>
 								</li>
 							</ul>
